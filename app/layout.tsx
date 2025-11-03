@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { GeistSans, GeistMono } from 'geist/font';
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme-provider";
-
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 
@@ -12,21 +11,19 @@ export const metadata: Metadata = {
   description: "Next.js chatbot template using the AI SDK.",
 };
 
-export const viewport = {
+export const viewport: Viewport = {
   maximumScale: 1, // Disable auto-zoom on mobile Safari
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'hsl(0 0% 100%)' },
+    { media: '(prefers-color-scheme: dark)', color: 'hsl(240deg 10% 3.92%)' },
+  ],
 };
 
-const geist = Geist({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-geist",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-geist-mono",
-});
+// Using GeistSans and GeistMono directly from the geist/font package
+const fontSans = GeistSans;
+const fontMono = GeistMono;
 
 const LIGHT_THEME_COLOR = "hsl(0 0% 100%)";
 const DARK_THEME_COLOR = "hsl(240deg 10% 3.92%)";

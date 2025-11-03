@@ -1,0 +1,30 @@
+name = "chatbot"
+compatibility_date = "2024-03-01"
+compatibility_flags = ["streams_enable_constructors", "nodejs_compat"]
+
+[build]
+command = "pnpm install && pnpm run build"
+publish = ".next"
+
+[build.upload]
+format = "modules"
+main = ".next/server/pages/_middleware.js"
+
+# 环境变量配置
+[vars]
+NODE_VERSION = "20"
+
+# D1 数据库配置
+[[d1_databases]]
+binding = "DB"
+database_name = "chatbot-db"
+database_id = "2c30e160-3faa-4a9a-8338-ce70875c2c3d"
+
+# 部署配置
+[deployment]
+workers_dev = true
+
+# 路由配置
+[[routes]]
+pattern = "*"
+script_name = "_worker.js"

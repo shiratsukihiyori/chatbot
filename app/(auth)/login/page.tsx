@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import { useActionState, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useFormState } from "react-dom";
 
 import { AuthForm } from "@/components/auth-form";
 import { SubmitButton } from "@/components/submit-button";
@@ -16,11 +17,13 @@ export default function Page() {
   const [email, setEmail] = useState("");
   const [isSuccessful, setIsSuccessful] = useState(false);
 
-  const [state, formAction] = useActionState<LoginActionState, FormData>(
-    login,
+  const [state, formAction] = useFormState<LoginActionState, FormData>(
+    async (prevState: LoginActionState | null, formData: FormData) => {
+      return await login(formData);
+    },
     {
       status: "idle",
-    }
+    } as LoginActionState
   );
 
   const { update: updateSession } = useSession();
