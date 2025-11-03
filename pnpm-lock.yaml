@@ -62,6 +62,9 @@ importers:
       '@vercel/blob':
         specifier: ^0.24.1
         version: 0.24.1
+      '@vercel/edge':
+        specifier: ^1.0.0
+        version: 1.2.2
       '@vercel/functions':
         specifier: ^2.0.0
         version: 2.0.0
@@ -2382,6 +2385,9 @@ packages:
   '@vercel/blob@0.24.1':
     resolution: {integrity: sha512-wHzgKzvAuF4tRDoXk3wGBYzQZ9z2fLr4oftiR1hOclPEdA1aj2/0mizvO2l5w91eZlTAaFth0S1DlqrrXqpntg==}
     engines: {node: '>=16.14'}
+
+  '@vercel/edge@1.2.2':
+    resolution: {integrity: sha512-1+y+f6rk0Yc9ss9bRDgz/gdpLimwoRteKHhrcgHvEpjbP1nyT3ByqEMWm2BTcpIO5UtDmIFXc8zdq4LR190PDA==}
 
   '@vercel/functions@2.0.0':
     resolution: {integrity: sha512-BSwIihLHoV18gerKZJyGuqd3rtaYM6rJvET1kOwKktshucyaHXTJel7Cxegs+sdX0NZqsX4LO2MFnMU2jG01Cw==}
@@ -6237,6 +6243,8 @@ snapshots:
       bytes: 3.1.2
       is-buffer: 2.0.5
       undici: 5.28.5
+
+  '@vercel/edge@1.2.2': {}
 
   '@vercel/functions@2.0.0': {}
 
